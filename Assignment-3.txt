@@ -1,0 +1,26 @@
+Assign3.java:
+import mpcli.*;
+
+public class Assign3 {
+    public static void main(String[] args) throws Exception {
+        MPI.Init(args);
+        int rank = MPI.COMM_WORLD.Rank();
+        int size = MPI.COMM_WORLD.Size();
+        System.out.println("Hello from process " + rank + " of " + size);
+        MPI.Finalize();
+    }
+}
+ 
+
+Execute Commands:
+Terminal:
+javac -cp ".;$env:MPJ_HOME\lib\mpj.jar" Assign3.java
+mpjrun.bat -np 4 Assign3
+ 
+
+Output:
+MPJ Express (0.44) is started in the multicore configuration
+Hello from process 0 of 4
+Hello from process 1 of 4
+Hello from process 2 of 4
+Hello from process 3 of 4
