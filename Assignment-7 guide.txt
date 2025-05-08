@@ -1,0 +1,95 @@
+Assignment 7
+
+File -> New Project -> java web -> web application
+
+next
+project name: Assignment7
+
+next
+server: glassfish
+java EE version: java EE 7 web
+
+next
+finish
+
+Project is created
+Assignment7 -> new -> web service
+
+Web service name: MyCalculatorWebService
+package: com.myservice
+create web service from scratch
+
+finish
+
+move to
+Ass-7 -> web service -> MyCalculatorWebService ->add operation
+
+name: addition
+return type : double
+
+parameters
+num1 double
+num2 double
+ok
+
+or you can use design to add operations
+
+change the return from 0.0 -> num1+num2 (similar for other operations)
+
+Move to ass-7  -> right click -> build -> deploy
+
+move to
+Ass-7 -> web service -> MyCalculatorWebService ->test webservice
+check all the operations
+
+
+//for client
+file -> new project -> java web -> web application 
+next
+
+project name: CalculatorWebServiceClient
+next -> finish
+
+open index.html of CalculatorWebServiceClient
+
+windows -> IDE tools -> pallet
+
+from pallete click the form and drag it to the body of html
+Action : CalculatorServlet
+Mathod : GET 
+ok
+
+write following code in the form
+Enter number1: <input type = "text" name = "number1" value = "" /> <br>
+Enter number2: <input type = "text" name = "number2" value = "" /> <br>
+
+<input type = "submit" value = "Submit" />
+
+I projects go to 
+CalculatoeWebServiceClient ->new -> webservice client
+project: browse -> ass-7 -> MycalculatorWebService
+ok -> finish
+
+CalculatoeWebServiceClient ->new -> servlet
+class name: CalculatorServlet
+next -> tick the checkbox -> finish
+
+drag the operation files in CalculatorServlet.java file
+which are present at CalculatoeWebServiceClient -> Web Service Referance -> -> ->
+drag ddition file to the CalculatorServlet.java file
+and similarly other files
+
+write code in try block
+double num1,num2;
+num1 = Double.parseDouble(request.getParameter("number1"));
+num2 = Double.parseDouble(request.getParameter("number2"));
+
+in body 
+in print statement
+out.println("<h1> Addition is:" + addition(num1, num2) + "</h1>");
+
+CalculatoeWebServiceClient -> clean & build
+go to 
+CalculatoeWebServiceClient -> web pages -> web -inf -> index html
+
+open the index.html file -> right click -> run file
